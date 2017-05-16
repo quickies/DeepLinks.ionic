@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-grid>
     <ion-row *ngFor="let row of chunk(posts,6)">
-      <ion-col *ngFor="let post of row" col-lg-2 col-sm-4 col-12>
+      <ion-col *ngFor="let post of row" col-lg-2 col-sm-4 col-6>
         <post-card [post]="post"></post-card>
       </ion-col>
     </ion-row>
