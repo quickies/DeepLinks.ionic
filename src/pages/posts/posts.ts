@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {IonicPage, NavController, NavParams} from "ionic-angular";
+import {IonicPage, LoadingController} from "ionic-angular";
 import {DataProvider} from "../../providers/data/data";
 import {Post} from "../../model/post";
 
@@ -10,7 +10,8 @@ import {Post} from "../../model/post";
 })
 export class PostsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: DataProvider) {
+  constructor(public service: DataProvider,
+              public loading: LoadingController) {
   }
 
   public posts = Array<Post>();
@@ -26,9 +27,15 @@ export class PostsPage {
   }
 
   ionViewDidLoad() {
-    this.service.loadPosts('http://createdaily.ch/nili.json').subscribe(
-      (posts) => this.posts = posts
-    );
-  }
 
+    let loader = this.loading.create({content: 'Loading posts...'});
+    loader.present().then(() => {
+      this.service.loadPosts('http://createdaily.ch/nili.json').subscribe(
+        (posts) => {
+          this.posts = posts;
+          loader.dismiss();
+        }
+      );
+    });
+  }
 }
