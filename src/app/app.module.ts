@@ -35,4 +35,5 @@ import {PostCardComponent} from "../components/post-card/post-card";
     DataProvider
   ]
 })
-export class AppModule {}
+export class AppModule {
+}

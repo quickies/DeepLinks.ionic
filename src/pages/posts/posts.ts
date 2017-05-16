@@ -28,7 +28,7 @@ export class PostsPage {
   ionViewDidLoad() {
     this.service.loadPosts('http://createdaily.ch/nili.json').subscribe(
       (posts) => this.posts = posts
-    )
+    );
   }
 
 }
