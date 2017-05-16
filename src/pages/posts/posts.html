@@ -8,12 +8,7 @@
   <ion-grid>
     <ion-row *ngFor="let row of chunk(posts,6)">
       <ion-col *ngFor="let post of row" col-lg-2 col-sm-4 col-12>
-        <ion-card>
-          <img [src]="post.image_square"/>
-          <ion-card-content>
-            <ion-card-title class="truncate"> {{post.title}}</ion-card-title>
-          </ion-card-content>
-        </ion-card>
+        <post-card [post]="post"></post-card>
       </ion-col>
     </ion-row>
   </ion-grid>

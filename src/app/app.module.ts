@@ -8,13 +8,14 @@ import {SplashScreen} from "@ionic-native/splash-screen";
 import {DataProvider} from "../providers/data/data";
 import {PostsPage} from "../pages/posts/posts";
 import {HttpModule} from "@angular/http";
-
+import {PostCardComponent} from "../components/post-card/post-card";
 
 @NgModule({
   declarations: [
     MyApp,
     PostsPage,
-    TabsPage
+    TabsPage,
+    PostCardComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
