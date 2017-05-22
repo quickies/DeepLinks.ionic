@@ -15,4 +15,10 @@ export class DataProvider {
       .map(res => res.json())
       .map(json => Post.deserializeList(json.posts));
   }
+
+  loadPost(resourceURL: any): Observable<Post> {
+    return this.http.get(resourceURL)
+      .map(res => res.json())
+      .map(json => new Post().deserialize(json));
+  }
 }

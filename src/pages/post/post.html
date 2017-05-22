@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="post">
+    <h1>{{post.title}}</h1>
+    <img [src]="post.image"/>
+  </div>
+
+</ion-content>
+

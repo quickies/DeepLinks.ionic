@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Post} from "../../model/post";
 
 @Component({
@@ -7,6 +7,13 @@ import {Post} from "../../model/post";
 })
 export class PostCardComponent {
 
+  @Output()
+  clicked: EventEmitter<any> = new EventEmitter();
+
   @Input()
   post: Post;
+
+  cardClicked(){
+    this.clicked.emit(this.post);
+  }
 }

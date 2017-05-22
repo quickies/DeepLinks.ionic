@@ -1,7 +1,8 @@
 import {Component} from "@angular/core";
-import {IonicPage, LoadingController} from "ionic-angular";
+import {IonicPage, LoadingController, NavController} from "ionic-angular";
 import {DataProvider} from "../../providers/data/data";
 import {Post} from "../../model/post";
+import {PostPage} from "../post/post";
 
 @IonicPage()
 @Component({
@@ -11,6 +12,7 @@ import {Post} from "../../model/post";
 export class PostsPage {
 
   constructor(public service: DataProvider,
+              public navCtrl: NavController,
               public loading: LoadingController) {
   }
 
@@ -26,6 +28,12 @@ export class PostsPage {
     return result;
   }
 
+  postClicked(post) {
+
+    this.navCtrl.push(PostPage, {
+      'id': post.id
+    });
+  }
   ionViewDidLoad() {
 
     let loader = this.loading.create({content: 'Loading posts...'});
